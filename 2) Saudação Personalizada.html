@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Saudação Personalizada</title>
+    </head>
+    <body>
+        <!-- Utilizei o auxilio do manual das aulas e ChatGPT, W3schools e pesquisas no developer <prompt></prompt> -->
+        <h1>Saudação Personalizada</h1>
+        <p>Site para dar uma Saudação Personalizada conforme os perídos do dia</p>
+        <h2>Informe seu nome aqui</h2>
+        <input type="text" id="nome" placeholder="Digite seu nome aqui">
+        <button id="saudacao" onclick="Saudacao()">Saudação</button>
+        <div id="visor">
+            <p id="saudacaoPersonalizada"></p>
+        </div>
+        <script>
+            // utilizei a ajuda do chatGPT para desenvolver (não copiei,eu mesmo ia escrevendo e tentado sulocionar os problemas que tinha) <prompt></prompt>
+            function Saudacao() {
+                const nome = document.getElementById("nome").value;
+                const visor = document.getElementById("visor");
+                const saudacaoPersonalizada = document.getElementById("saudacaoPersonalizada");
+                const horaAtual = new Date().getHours();
+                let saudacao = "";
+
+                if (horaAtual >= 0 && horaAtual < 12) {
+                    saudacao = "Bom dia";
+                } else if (horaAtual >= 12 && horaAtual < 18) {
+                    saudacao = "Boa tarde";
+                } else {
+                    saudacao = "Boa noite";
+                }
+
+                visor.style.display = "block";
+                saudacaoPersonalizada.innerHTML = `${saudacao}, ${nome}!`;
+            }
+        </script>
+    </body> 
+</html>
