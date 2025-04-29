@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Contador de Cliques</title>
+    </head>
+    <body>
+        <!-- ajuda do manual das aulas(gamma),chatgpt e pesquisas no developer <prompt></prompt> -->
+        <h1>Contador de Cliques</h1>
+        <p>Site para contabilizar quantos cliques foram acionados</p>
+        <button id="cliqueaqui" onclick="Cliqueaqui()">Clique</button>
+        <button id="reset" onclick="Reset()">Reset</button>
+        <div id="visordeclick">
+            Você clicou <strong>0</strong> vezes.
+        </div>
+        <script>
+            // Após montar os códigos, solicitei ao ChatGPT que analisasse a existência de problemas e os corrigisse <prompt
+            let totalcliques = 0; 
+            const visor = document.getElementById("visordeclick");
+
+            function atualizarvecliques() {
+                visor.innerHTML = `Você clicou <strong>${totalcliques}</strong> ${totalcliques === 1 ? 'vez' : 'vezes'}.`;
+            }
+
+            function Cliqueaqui() {
+                totalcliques++; 
+                atualizarvecliques(); 
+            }
+
+            function Reset() {
+                totalcliques = 0; 
+                atualizarvecliques(); 
+            }
+        </script>
+    </body>
+</html>
