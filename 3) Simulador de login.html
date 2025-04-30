@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Simulador de Login</title>
+    </head>
+    <body>
+        <!-- Utilizei o auxilio do manual das aulas e ChatGPT, W3schools e pesquisas no developere,exeplos que o google mostrou <prompt></prompt> -->
+        <h1>Simulador de Login</h1>
+        <p>Site para simular um login com validação de usuário e senha</p>
+        <h2>Informe seu usuário e senha aqui</h2>
+        <input type="text" id="usuario" placeholder="Digite seu usuário aqui">
+        <input type="password" id="senha" placeholder="Digite sua senha aqui">
+        <button id="logar" onclick="Logar()">Logar</button>
+        <div id="visor" style="display: none;">
+            <p id="resultado"></p>
+        </div>
+        <script>
+            function Logar() {
+                const usuario = document.getElementById("usuario").value.trim();
+                const senha = document.getElementById("senha").value.trim();
+                const visor = document.getElementById("visor");
+                const resultado = document.getElementById("resultado");
+                // ajuda do chatgpt e manual(gamma) das aulas <prompt></prompt>
+                visor.style.display = "block";
+
+                if (!usuario || !senha) {
+                    resultado.innerHTML = "Por favor, preencha todos os campos.";
+                    return;
+                }
+
+                if (usuario === "admin" && senha === "123456") {
+                    resultado.innerHTML = "Login realizado com sucesso!";
+                } else {
+                    resultado.innerHTML = "Usuário ou senha inválidos.";
+                }
+            }
+        </script>
+    </body>
+</html>
